@@ -1,0 +1,91 @@
+.quotes {
+  --quotes-text-color: #000000;
+  --quotes-border-color: #000000;
+  --quotes-2nd-row-bg: rgb(236, 236, 236);
+  --animation-up-bg: #86ffa1;
+  --animation-down-bg: #ff8b8b;
+
+  width: 100%;
+  border-collapse: collapse;
+
+  &--dark {
+    --quotes-text-color: #ffffff;
+    --quotes-border-color: #ffffff;
+    --quotes-2nd-row-bg: rgb(56, 56, 56);
+    --animation-up-bg: #078e25;
+    --animation-down-bg: #c34949;
+  }
+}
+
+.quotes__section {
+  &--head {
+    border-bottom: 1px solid var(--quotes-border-color);
+  }
+}
+
+.quotes__row {
+  text-align: left;
+  color: var(--quotes-text-color);
+
+  &:nth-child(2n) {
+    background-color: var(--quotes-2nd-row-bg);
+  }
+}
+
+.quotes__header {
+  position: relative;
+
+  padding-bottom: 10px;
+}
+
+.quotes__header-name {
+  position: relative;
+  padding-right: 20px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &--sort-asc::after {
+    content: "\25BC";
+  }
+
+  &--sort-desc::after {
+    content: "\25B2";
+  }
+}
+
+.quotes__data {
+  padding: 2px;
+  animation-duration: 0.1s;
+
+  &--up {
+    animation-name: up;
+  }
+
+  &--down {
+    animation-name: down;
+  }
+}
+
+@keyframes up {
+  0% {
+    background-color: var(--animation-up-bg);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes down {
+  0% {
+    background-color: var(--animation-down-bg);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}

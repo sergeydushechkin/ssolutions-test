@@ -1,0 +1,20 @@
+.main-page {
+  --main-page-header-color: #000000;
+
+  max-width: 768px;
+
+  margin: 0 auto;
+  padding-top: 20px;
+
+  &--dark {
+    --main-page-header-color: #ffffff;
+  }
+}
+
+.main-page__header {
+  color: var(--main-page-header-color);
+}
+
+.main-page__options {
+  margin-bottom: 20px;
+}

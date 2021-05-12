@@ -1,0 +1,28 @@
+.options {
+  --options-label-color: #000000;
+  --options-select-color: #000000;
+  --options-select-bg: #ffffff;
+
+  list-style: none;
+  padding: 0;
+
+  &--dark {
+    --options-label-color: #ffffff;
+    --options-select-color: #ffffff;
+    --options-select-bg: #000000;
+  }
+}
+
+
+.options__item {
+  margin-bottom: 10px;
+}
+
+.options__label {
+  color: var(--options-label-color);
+}
+
+.options__select {
+  color: var(--options-select-color);
+  background-color: var(--options-select-bg);
+}
