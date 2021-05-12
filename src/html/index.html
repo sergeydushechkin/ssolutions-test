@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Scalable Solutions test task</title>
+</head>
+<body>
+  <div id="root">
+    <main class="main-page main-page--light">
+      <h1 class="main-page__header">Exchange Quotes</h1>
+
+      <ul class="main-page__options options options--light">
+        <li class="options__item">
+          <label class="options__label" for="theme-select">Choose theme: </label>
+          <select  class="options__select" name="theme" id="theme-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </li>
+        <li class="options__item">
+          <div class="options__choice choice choice--light">
+            <span class="choice__name">Show: </span>
+            <ul class="choice__list">
+              <li class="choice__item">
+                <a class="choice__link choice__link--active" href="">All</a>
+              </li>
+              <li class="choice__item">
+                <a class="choice__link" href="">Top 50</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <table class="main-page__quotes quotes quotes--light">
+        <thead class="quotes__section quotes__section--head">
+          <tr class="quotes__row quotes__row--headers">
+            <th class="quotes__header"><span class="quotes__header-name">Ticker</span></th>
+            <th class="quotes__header"><span class="quotes__header-name">Bid</span></th>
+            <th class="quotes__header"><span class="quotes__header-name">Ask</span></th>
+            <th class="quotes__header"><span class="quotes__header-name">High</span></th>
+            <th class="quotes__header"><span class="quotes__header-name">Low</span></th>
+            <th class="quotes__header"><span class="quotes__header-name quotes__header-name--sort-asc">Last</span></th>
+          </tr>
+        </thead>
+        <tbody class="quotes__section">
+          <tr class="quotes__row">
+            <td class="quotes__data">YFI / USD</td>
+            <td class="quotes__data">76319.3</td>
+            <td class="quotes__data">76431.4</td>
+            <td class="quotes__data">94507.9</td>
+            <td class="quotes__data">73603.6</td>
+            <td class="quotes__data">76319.4</td>
+          </tr>
+          <tr class="quotes__row">
+            <td class="quotes__data">YFI / USD</td>
+            <td class="quotes__data">76319.3</td>
+            <td class="quotes__data">76431.4</td>
+            <td class="quotes__data">94507.9</td>
+            <td class="quotes__data">73603.6</td>
+            <td class="quotes__data">76319.4</td>
+          </tr>
+          <tr class="quotes__row">
+            <td class="quotes__data">YFI / USD</td>
+            <td class="quotes__data">76319.3</td>
+            <td class="quotes__data">76431.4</td>
+            <td class="quotes__data">94507.9</td>
+            <td class="quotes__data">73603.6</td>
+            <td class="quotes__data">76319.4</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <script src="./bundle.js"></script>
+</body>
+</html>
