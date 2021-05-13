@@ -40,9 +40,9 @@ const createAPI = (onError: (err: Error) => void) => {
     throw err;
   };
 
-  api.interceptors.response.use(onSuccess, onFail);
+  // api.interceptors.response.use(onSuccess, onFail);
 
-  return api;
+  // return api;
 };
 
 export {createAPI};

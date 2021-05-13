@@ -46,12 +46,12 @@ const Quotes:React.FunctionComponent<Props> = (props: Props) => {
         </tr>
       </thead>
       <tbody className="quotes__section">
-        {symbols ? <Quote client={client} id={symbols[0]} /> : null}
-       {/* {symbols ? symbols.map((it) => {
+        {/* {symbols ? <Quote client={client} id={symbols[0]} /> : null} */}
+        {symbols ? symbols.map((it) => {
              return <Quote key={it} client={client} id={it}/>
            })
          : null
-        } */}
+        }
       </tbody>
     </table>
   );
