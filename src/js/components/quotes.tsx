@@ -1,35 +1,40 @@
 import * as React from "react";
 import {ThemeColors} from "../types";
+import {createSocket} from "../api";
+
 import Quote from "./quote";
 
 interface Props{
   theme: ThemeColors;
 }
 
-const client = new WebSocket('wss://api.exchange.bitcoin.com/api/2/ws');
+// const client = new WebSocket('wss://api.exchange.bitcoin.com/api/2/ws');
 
 const Quotes:React.FunctionComponent<Props> = (props: Props) => {
   const {theme} = props;
   const [symbols, setSymbols] = React.useState(null);
+  const [digit, setDigit] = React.useState(0);
 
   React.useEffect(() => {
-    client.onopen = () => {
-      console.log(`open`);
+    createSocket(`wss://api.exchange.bitcoin.com/api/2/ws`, setDigit);
 
-      client.send(JSON.stringify({"method": "getSymbols", "id": "123",}));
-    }
+    // client.onopen = () => {
+    //   console.log(`open`);
 
-    client.onmessage = (message) => {
-      console.log(`message`);
+    //   client.send(JSON.stringify({"method": "getSymbols", "id": "123",}));
+    // }
 
-      const data = JSON.parse(message.data);
-      if (data.id === "123") {
-        const tickers = data.result.map((it) => {
-          return it.id;
-        });
-        setSymbols(tickers);
-      }
-    }
+    // client.onmessage = (message) => {
+    //   console.log(`message`);
+
+    //   const data = JSON.parse(message.data);
+    //   if (data.id === "123") {
+    //     const tickers = data.result.map((it) => {
+    //       return it.id;
+    //     });
+    //     setSymbols(tickers);
+    //   }
+    // }
 
   }, [])
 
@@ -46,12 +51,13 @@ const Quotes:React.FunctionComponent<Props> = (props: Props) => {
         </tr>
       </thead>
       <tbody className="quotes__section">
+        <tr><td>{digit}</td></tr>
         {/* {symbols ? <Quote client={client} id={symbols[0]} /> : null} */}
-        {symbols ? symbols.map((it) => {
+        {/* {symbols ? symbols.map((it) => {
              return <Quote key={it} client={client} id={it}/>
            })
          : null
-        }
+        } */}
       </tbody>
     </table>
   );
