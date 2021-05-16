@@ -13,7 +13,7 @@ interface Props{
 const Quotes:React.FunctionComponent<Props> = (props: Props) => {
   const {theme} = props;
   const [symbols, setSymbols] = React.useState(null);
-  const [digit, setDigit] = React.useState(0);
+  const [digit, setDigit] = React.useState([]);
 
   React.useEffect(() => {
     createSocket(`wss://api.exchange.bitcoin.com/api/2/ws`, setDigit);
@@ -51,13 +51,13 @@ const Quotes:React.FunctionComponent<Props> = (props: Props) => {
         </tr>
       </thead>
       <tbody className="quotes__section">
-        <tr><td>{digit}</td></tr>
+        {/* <tr><td>{JSON.stringify(digit)}</td></tr> */}
         {/* {symbols ? <Quote client={client} id={symbols[0]} /> : null} */}
-        {/* {symbols ? symbols.map((it) => {
-             return <Quote key={it} client={client} id={it}/>
+        {digit ? digit.map((it) => {
+             return <Quote key={it.symbol} data={it}/>
            })
          : null
-        } */}
+        }
       </tbody>
     </table>
   );
