@@ -36,12 +36,15 @@ const createSocket = (addr, cb) => {
     if (data.method === `ticker`) {
       // console.log(`subscribes=`);
       // console.log(subscribes);
+      const time1 = new Date().getTime();
       let index = tickersQueue[data.params.symbol].index;
       subscribes = [].concat(...subscribes.slice(0, index), Object.assign(subscribes[tickersQueue[data.params.symbol].index], data.params), ...subscribes.slice(index + 1, subscribes.length));
       // subscribes[tickersQueue[data.params.symbol].index] = Object.assign(subscribes[tickersQueue[data.params.symbol].index], data.params);
       // console.log(`subscribes2=`);
       // console.log(`subscribes`);
-      cb(subscribes);
+      //console.log(subscribes[0]);
+      const time2 = new Date().getTime();
+      cb(`${Date.now()}`);
     } else if (`id` in data) {
       if (data.id ===  SYMBOLS_ID) {
         // console.log(`id = ${SYMBOLS_ID}`);

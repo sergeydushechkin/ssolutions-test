@@ -53,11 +53,14 @@ const Quotes:React.FunctionComponent<Props> = (props: Props) => {
       <tbody className="quotes__section">
         {/* <tr><td>{JSON.stringify(digit)}</td></tr> */}
         {/* {symbols ? <Quote client={client} id={symbols[0]} /> : null} */}
-        {digit ? digit.map((it) => {
+        <tr>
+          <td>{JSON.stringify(digit)}</td>
+        </tr>
+        {/* {digit ? digit.map((it) => {
              return <Quote key={it.symbol} data={it}/>
            })
          : null
-        }
+        } */}
       </tbody>
     </table>
   );
